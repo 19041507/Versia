@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.form-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Tittles */
+h1, h2 {
+    color: #333;
+    margin-bottom: 25px;
+}
+
+/* Agrupamento de label e input */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; 
+    margin-top: 20px;
+}
+
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none; /* Para o link 'Cancelar' ficar como button :3 */
+}
+
+.btn-primary {
+    background-color: #0056b3;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #004494;
+}
+
+/* Botão secundário (Cancelar) */
+.btn-secondary {
+    background-color: #ffffff;
+    color: #0056b3;
+    border: 1px solid #0056b3;
+}
+
+.btn-secondary:hover {
+    background-color: #f2f2f2;
+}
+
+/* Link de redefinir senha */
+.redefinir-link {
+    margin-top: 15px;
+}
+
+.redefinir-link a,
+.cadastro-link a {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+.redefinir-link a:hover,
+.cadastro-link a:hover {
+    text-decoration: underline;
+}
+
+/* Link para a página de cadastro */
+.cadastro-link {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+
+#cadastro {
+    display: none;
+}
+
+#cadastro:target {
+    display: block; /* Mostra a seção de cadastro */
+}
+
+/* Quando a seção de cadastro estiver ativa (#cadastro:target), esconda a seção de login que vem depois dela */
+#cadastro:target + #login {
+    display: none;
+}
