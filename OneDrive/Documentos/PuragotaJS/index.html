@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pura Gota - Login e Cadastro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main>
+        <section id="cadastro" class="form-wrapper">
+            <div class="form-container">
+                <h2>Cadastro de Cliente</h2>
+                <form action="#">
+                    <div class="input-group">
+                        <label for="nome">Nome Completo:</label>
+                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="endereco">Endereço de Entrega:</label>
+                        <input type="text" id="endereco" name="endereco" placeholder="Rua, Número, Bairro" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="telefone">Telefone para Contato:</label>
+                        <input type="tel" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="produto">Produto Desejado:</label>
+                        <select id="produto" name="produto">
+                            <option value="galao_20l">Galão de Água 20L</option>
+                            <option value="galao_10l">Galão de Água 10L</option>
+                            <option value="fardo_500ml">Fardo com 12 garrafas de 500ml</option>
+                            <option value="agua_gas">Água com Gás 500ml</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="pagamento">Forma de Pagamento:</label>
+                        <select id="pagamento" name="pagamento">
+                            <option value="pix">Pix</option>
+                            <option value="dinheiro">Dinheiro</option>
+                            <option value="cartao_credito">Cartão de Crédito</option>
+                            <option value="cartao_debito">Cartão de Débito</option>
+                        </select>
+                    </div>
+                    <div class="button-container">
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                        <a href="#" class="btn btn-secondary">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section id="login" class="form-wrapper">
+            <div class="form-container">
+                <h1>💧 Pura Gota</h1>
+                <form action="#">
+                    <div class="input-group">
+                        <label for="login-user">Login:</label>
+                        <input type="text" id="login-user" name="login" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="senha">Senha:</label>
+                        <input type="password" id="senha" name="senha" required>
+                    </div>
+                    <div class="button-container">
+                        <button type="submit" class="btn btn-primary">Entrar</button>
+                    </div>
+                    <div class="redefinir-link">
+                        <a href="#">Redefinir</a>
+                    </div>
+                </form>
+                <div class="cadastro-link">
+                    <p>Não tem uma conta? <a href="#cadastro">Cadastre-se aqui</a></p>
+                </div>
+            </div>
+        </section>
+
+</main>
+     <script src="script.js"></script>
+</body>
+</html>
