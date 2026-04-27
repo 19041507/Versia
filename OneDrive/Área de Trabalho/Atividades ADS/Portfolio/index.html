@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Augusto | Estudante de ADS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ================= Variavéis e Reset ================= */
+        :root {
+            --bg-color: #0a0a0a;
+            --bg-secondary: #141414;
+            --text-primary: #ededed;
+            --text-secondary: #a1a1aa;
+            --border-color: #27272a;
+            --accent-color: #ffffff;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* ================= Layout e Tipografia ================= */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 6rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h1, h2, h3 {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* ================= Navegação ================= */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            transition: color var(--transition-speed);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* ================= Hero Section ================= */
+        #hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 1;
+            transform: none;
+            padding-top: 4rem;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            border: 1px solid var(--accent-color);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--accent-color);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-color);
+        }
+
+        /* ================= Sobre Mim & Habilidades ================= */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 4rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+        }
+
+        /* ================= Trajetória ================= */
+        .timeline-item {
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+            border-left: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 6px;
+            width: 9px;
+            height: 9px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+        }
+
+        .timeline-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.2rem;
+        }
+
+        .timeline-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* ================= Projetos ================= */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: transform var(--transition-speed), border-color var(--transition-speed);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: #555;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: auto;
+        }
+
+        .project-link {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        /* ================= Contato ================= */
+        #contato {
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            padding: 4rem 0;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* ================= Responsividade ================= */
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-content">
+            <div class="logo">Daniel Augusto.</div>
+            <ul class="nav-links">
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#trajetoria">Trajetória</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header id="hero">
+            <h1 class="hero-title">Daniel Augusto<br>Dias da Costa</h1>
+            <p class="hero-subtitle">Estudante de ADS na FICR. Focado em desenvolvimento web, aprendizado contínuo e em busca da minha primeira oportunidade na área de tecnologia.</p>
+            <div class="btn-group">
+                <a href="#projetos" class="btn btn-primary">Ver Meus Projetos</a>
+                <a href="https://github.com/19041507" target="_blank" class="btn btn-secondary">Acessar GitHub</a>
+            </div>
+        </header>
+
+        <section id="sobre">
+            <div class="grid-2">
+                <div class="about-text">
+                    <h2>Sobre Mim</h2>
+                    <p>Olá! Tenho 19 anos, moro em Recife - PE e sou estudante de Análise e Desenvolvimento de Sistemas na FICR. Sou apaixonado por tecnologia e venho construindo minha base através de estudos práticos e projetos pessoais focados na web.</p>
+                    <p>Como Jovem Aprendiz na MobiBrasil, desenvolvi forte senso de organização, responsabilidade e vivência em ambiente corporativo. Agora, meu objetivo é transitar de vez para a área técnica, aplicando o que estudo em um ambiente real como estagiário ou profissional em início de carreira.</p>
+                </div>
+                <div class="skills">
+                    <h2>Habilidades e Conhecimentos</h2>
+                    <div class="skills-container">
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">Noções de AWS</span>
+                        <span class="skill-tag">Redes</span>
+                        <span class="skill-tag">LGPD</span>
+                        <span class="skill-tag">Pacote Office</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="trajetoria">
+            <div class="grid-2">
+                <div>
+                    <h2>Experiência Profissional</h2>
+                    <div class="timeline-item">
+                        <h3 class="timeline-title">Jovem Aprendiz (Setor Administrativo/Almoxarifado)</h3>
+                        <p class="timeline-subtitle">MobiBrasil</p>
+                        <p class="project-desc">Atuação direta no suporte administrativo e rotinas de almoxarifado. Responsável pelo controle e organização de materiais, apoiando a execução correta dos processos internos e desenvolvendo habilidades de trabalho em equipe.</p>
+                    </div>
+                </div>
+                <div>
+                    <h2>Formação Acadêmica</h2>
+                    <div class="timeline-item">
+                        <h3 class="timeline-title">Análise e Desenvolvimento de Sistemas (ADS)</h3>
+                        <p class="timeline-subtitle">FICR - Faculdade Católica Imaculada Conceição do Recife</p>
+                        <p class="project-desc">Em andamento. Focado na base de desenvolvimento web, estrutura de sistemas e boas práticas de código.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 class="timeline-title">Ensino Médio Completo</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projetos">
+            <h2>Projetos Práticos</h2>
+            <div class="projects-grid">
+                
+                <div class="project-card">
+                    <h3 class="project-title">Pura-GotaJS</h3>
+                    <p class="project-desc">Projeto web que construí com foco na interface, interatividade e aplicação prática dos meus estudos em JavaScript, criando layouts dinâmicos.</p>
+                    <div class="skills-container" style="margin-bottom: 1.5rem;">
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://19041507.github.io/Pura-GotaJS/" target="_blank" class="project-link">Visualizar Projeto ↗</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">Google-DE</h3>
+                    <p class="project-desc">Desenvolvido para treinar a estruturação de páginas web, organização de arquivos e os fundamentos do front-end.</p>
+                    <div class="skills-container" style="margin-bottom: 1.5rem;">
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/19041507/Google-DE" target="_blank" class="project-link">Repositório GitHub ↗</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <footer id="contato">
+            <h2>Vamos conversar?</h2>
+            <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto;">Atualmente busco minha primeira oportunidade na área de TI. Estou pronto para aprender e colaborar com a sua equipe.</p>
+            
+            <div class="contact-links" style="flex-direction: column; align-items: center; gap: 1rem;">
+                <p style="font-weight: 600; color: var(--accent-color);">Contato: capitaoaugusto123@gmail.com</p>
+                <p style="font-weight: 600; color: var(--accent-color);">Contato: (81) 98685-5676</p>
+                <a href="https://github.com/19041507" target="_blank" class="btn btn-secondary">Acessar GitHub</a>
+            </div>
+            <p style="margin-top: 4rem; font-size: 0.8rem; color: #555;">© 2026 Daniel Augusto Dias da Costa.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
