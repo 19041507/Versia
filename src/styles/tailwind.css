@@ -3,5 +3,6 @@
 /* Scan both the Vite src tree and the Next.js /app directory */
 @source '../**/*.{js,ts,jsx,tsx}';
 @source '../../app/**/*.{js,ts,jsx,tsx}';
+@source '../../components/**/*.{js,ts,jsx,tsx}';
 
 @import 'tw-animate-css';

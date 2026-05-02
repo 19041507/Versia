@@ -49,7 +49,7 @@ app/
 ├── subscription/              # Plano premium
 └── profile/                   # Perfil do usuário
 
-src/app/components/            # Componentes reutilizáveis
+components/                  # Componentes reutilizáveis
 src/styles/                    # Estilos globais
 src/imports/                   # Assets importados
 ```
