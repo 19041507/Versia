@@ -5,7 +5,6 @@ const nextConfig = {
     unoptimized: true,
   },
   webpack: (config, { isServer }) => {
-    // Handle figma:asset imports
     config.module.rules.push({
       test: /figma:asset/,
       use: [
